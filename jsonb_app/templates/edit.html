@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="/static/bootstrap/dist/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container col-md-6 mt-4">
+	<form method="POST" action="/add">
+		<label>Title</label>
+		<input  class="form-control" type="text" name="txtTitle"
+		value="{{book.data['title']}}">
+		<label>Published Year</label>
+		<input class="form-control"  type="text" name="txtPublishedYear" value="{{book.data['publish_year']}}">
+		<label>Generes</label>
+		<br>
+		<input type="checkbox" name="chkGeneres" value="Fiction"> Fiction<br>
+		<input type="checkbox" name="chkGeneres" value="Thriller"> Thriller<br>
+		<input type="checkbox" name="chkGeneres" value="Law"> Law<br>
+		<input type="checkbox" name="chkGeneres" value="Politics"> Politics<br>
+		<input type="checkbox" name="chkGeneres" value="Spirituality"> Spirituality<br>
+		<input type="checkbox" name="chkGeneres" value="Marketing & Sales"> Marketing & Sales<br>
+		<input type="checkbox" name="chkGeneres" value="Self-Help"> Self-Help<br>
+		<input class="btn btn-primary mt-2" type="submit" name="" value="submit">	
+	</form>
+</div>
+</body>
+<script type="text/javascript">
+	var genres = {{ genres_list | tojson }};
+	console.log(typeof(genres));
+	var checkboxlist = document.getElementsByName("chkGeneres");
+	for (var i = 0; i < checkboxlist.length; i++)
+    {   
+        // console.log(checkboxlist[i].value);
+        if (genres.indexOf(checkboxlist[i].value) != -1) {
+  				console.log("element doesn't exist");
+  				checkboxlist[i].checked = true;
+			}
+    }
+	// for(var index in genres){
+	// 	console.log(genres[index]);
+	// 	if(genres[index] == checkboxlist.value){
+
+	// 			checboxlist.checked = true;
+	// 		}
+	// 	}
+
+</script>
+</html>

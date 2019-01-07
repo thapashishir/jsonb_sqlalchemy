@@ -2,11 +2,10 @@ from flask import render_template,request,redirect
 from jsonb_app import app,db
 from  jsonb_app.models import Book
 
-
 @app.route('/')
-def index():
-    db.create_all()
-    return "<h1>setup</h1>"
+@app.route('/list')
+def list():
+    return  render_template('list.html',books=Book.query.all())
 
 @app.route('/add')
 def add_get():
@@ -25,8 +24,14 @@ def add_post():
 
     return redirect('/list')
 
-@app.route('/list')
-def list():
-    return  render_template('list.html',books=Book.query.all())
+@app.route('/edit/<id_>')
+def edit_get(id_):
+    book = Book.query.filter_by(id_=id_).first()
+    print(book.data['genres'])
+    return render_template('edit.html',
+                            book=book,
+                            genres_list=book.data['genres'])
+
+
 
 
