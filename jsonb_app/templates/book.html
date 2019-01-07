@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="/static/bootstrap/dist/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container col-md-6 mt-4">
+	<form method="POST" action="/add">
+		<label>Title</label>
+		<input  class="form-control" type="text" name="txtTitle">
+		<label>Published Year</label>
+		<input class="form-control"  type="text" name="txtPublishedYear">
+		<label>Generes</label>
+		<br>
+		<input type="checkbox" name="chkGeneres" value="Fiction"> Fiction<br>
+		<input type="checkbox" name="chkGeneres" value="Thriller"> Thriller<br>
+		<input type="checkbox" name="chkGeneres" value="Law<"> Law<br>
+		<input type="checkbox" name="chkGeneres" value="Politics"> Politics<br>
+		<input type="checkbox" name="chkGeneres" value="Spirituality"> Spirituality<br>
+		<input type="checkbox" name="chkGeneres" value="Marketing & Sales"> Marketing & Sales<br>
+		<input type="checkbox" name="chkGeneres" value="Self-Help"> Self-Help<br>
+		<input class="btn btn-primary mt-2" type="submit" name="" value="submit">	
+	</form>
+</div>
+</body>
+</html>

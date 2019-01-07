@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="/static/bootstrap/dist/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-4">
+        <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Title</th>
+                        <th>Pubilshed Year</th>
+                        <th>Generes</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for book in books %}
+                    <tr>
+                        <td>{{ book.id_}}</td>
+                        <td>{{book.data['title']}}</td>
+                        <td>{{book.data['publish_year']}}</td>
+                        <td>
+                            {% for genre in book.data['genres'] %}
+                                {{ genre }}
+                            {% endfor %}
+                        </td>
+                        <td>
+                            <a href="#">Details</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+    </div>
+</body>
+</html>
