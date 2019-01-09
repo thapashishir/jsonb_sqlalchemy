@@ -6,7 +6,9 @@
 </head>
 <body>
 <div class="container col-md-6 mt-4">
-	<form method="POST" action="/add">
+	<h3>Edit</h3>
+	<form method="POST" action="/edit">
+		<input type="hidden" name="id_" value="{{book.id_}}">
 		<label>Title</label>
 		<input  class="form-control" type="text" name="txtTitle"
 		value="{{book.data['title']}}">

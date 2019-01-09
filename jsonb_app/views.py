@@ -9,7 +9,7 @@ def list():
 
 @app.route('/add')
 def add_get():
-    return render_template('book.html')
+    return render_template('add.html')
 
 @app.route('/add',methods=["POST"])
 def add_post():
@@ -31,6 +31,18 @@ def edit_get(id_):
     return render_template('edit.html',
                             book=book,
                             genres_list=book.data['genres'])
+
+@app.route('/edit', methods=["POST"])
+def edit_post():
+    id_=int(request.form['id_'])
+    updated_data={
+                "title":request.form["txtTitle"],
+                "publish_year":request.form["txtPublishedYear"],
+                "genres":request.form.getlist('chkGeneres')
+    }
+    db.session.query(Book).filter_by(id_=id_).update({"data":updated_data})
+    db.session.commit()
+    return redirect('/list')
 
 
 
