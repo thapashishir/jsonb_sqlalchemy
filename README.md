@@ -9,7 +9,7 @@ Following are setps that needs to be followed for setting up this project
     
     $ pip install -r requirements.txt
     
-#Setting up database
+# Setting up database
     -change SQLALCHEMY_DATABASE_URI located in config.py file according to your database configuration
     -Run commad 
     $ python create_db.py in project root folder to create necessary tables for project.
