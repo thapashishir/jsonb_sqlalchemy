@@ -1,11 +1,9 @@
+import config
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
-
-db_url='postgresql+psycopg2://postgres:password@localhost:5432/test_db'
-app.config['SQLALCHEMY_DATABASE_URI'] = db_url
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+app.config.from_object('config')
 
 db = SQLAlchemy()
 db.init_app(app)
